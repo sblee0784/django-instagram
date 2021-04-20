@@ -1,9 +1,10 @@
 from django.urls import path
 from .views import PhotoList, PhotoDelete, PhotoDetail, PhotoUpdate, PhotoCreate, PhotoLike, Photofavorite, \
-    PhotoLikeList, PhotoFavoriteList
+    PhotoLikeList, PhotoFavoriteList, PhotoMyList
 
 app_name = "photo"
 urlpatterns = [
+    path("mylist/", PhotoMyList.as_view(), name='mylist'),
     path("create/", PhotoCreate.as_view(), name='create'),
     path("like/<int:photo_id>/", PhotoLike.as_view(), name='like'),
     path("favorite/<int:photo_id>/", Photofavorite.as_view(), name='favorite'),
